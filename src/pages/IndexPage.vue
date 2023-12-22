@@ -18,6 +18,9 @@
       <a-tab-pane key="user" tab="用户">
         <UserList :user-list="userList" />
       </a-tab-pane>
+      <a-tab-pane key="video" tab="视频">
+        <UserList :user-list="videoList" />
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
@@ -28,6 +31,7 @@ import PostList from "@/components/PostList.vue";
 import PictureList from "@/components/PictureList.vue";
 import UserList from "@/components/UserList.vue";
 import MyDivider from "@/components/MyDivider.vue";
+import VideoList from "@/components/VideoList.vue";
 import { useRoute, useRouter } from "vue-router";
 import myAxios from "@/plugins/myAxios";
 import { message } from "ant-design-vue";
@@ -37,6 +41,8 @@ const postList = ref([]);
 const userList = ref([]);
 
 const pictureList = ref([]);
+
+const videoList = ref([]);
 
 const route = useRoute();
 const router = useRouter();
@@ -94,6 +100,7 @@ const loadAllData = (params: any) => {
     postList.value = res.postList;
     userList.value = res.userList;
     pictureList.value = res.pictureList;
+    videoList.value = res.videoList;
   });
 };
 
@@ -118,6 +125,8 @@ const loadData = (params: any) => {
       userList.value = res.dataList;
     } else if (type === "picture") {
       pictureList.value = res.dataList;
+    } else if (type === "video") {
+      videoList.value = res.dataList;
     }
   });
 };
