@@ -22,13 +22,11 @@
       </a>
     </template>
   </a-list>
-  <MyHint v-else></MyHint>
 </template>
 
 <script setup lang="ts">
 import wft from "../assets/gege.jpg";
 import { withDefaults, defineProps } from "vue";
-import MyHint from "@/components/MyHint.vue";
 
 interface Props {
   videoList: any[];

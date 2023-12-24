@@ -2,7 +2,7 @@
   <a-list item-layout="horizontal" :data-source="props.postList">
     <template #renderItem="{ item }">
       <a-list-item>
-        <a-list-item-meta :description="item.content">
+        <a-list-item-meta :description="truncatedContent(item.content)">
           <template #title>
             <a href="https://www.antdv.com/">{{ item.title }}</a>
           </template>
@@ -26,6 +26,16 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   postList: () => [],
 });
+
+const contentLimit = 100;
+
+const truncatedContent = (content: string): string => {
+  if (content.length > contentLimit) {
+    return content.slice(0, contentLimit) + "...";
+  } else {
+    return content;
+  }
+};
 </script>
 
 <style scoped>

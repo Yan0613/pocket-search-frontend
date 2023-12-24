@@ -19,7 +19,7 @@
         <UserList :user-list="userList" />
       </a-tab-pane>
       <a-tab-pane key="video" tab="视频">
-        <UserList :user-list="videoList" />
+        <VideoList :video-list="videoList" />
       </a-tab-pane>
     </a-tabs>
   </div>
