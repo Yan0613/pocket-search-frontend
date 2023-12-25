@@ -8,13 +8,20 @@
     <template #renderItem="{ item }">
       <a :href="item.url">
         <a-list-item>
-          <a-card hoverable>
+          <a-card hoverable style="width: 150%">
             <template #cover>
-              <img :src="item.pic" referrerpolicy="no-referrer" />
+              <img
+                :src="item.pic"
+                referrerpolicy="no-referrer"
+                style="width: 100%; height: 100px; object-fit: cover"
+              />
             </template>
-            <a-card-meta :title="item.author">
+            <a-card-meta :title="item.author" style="width: 100%; height: 80px">
               <template #description>
-                <span v-html="item.title"></span>
+                <span
+                  v-html="item.title"
+                  style="width: 100%; height: 30px"
+                ></span>
               </template>
             </a-card-meta>
           </a-card>
@@ -36,5 +43,3 @@ const props = withDefaults(defineProps<Props>(), {
   videoList: () => [],
 });
 </script>
-
-<style scoped></style>

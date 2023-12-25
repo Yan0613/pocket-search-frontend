@@ -6,7 +6,7 @@
   >
     <template #renderItem="{ item }">
       <a-list-item>
-        <a-card hoverable>
+        <a-card hoverable style="width: 150%">
           <template #cover>
             <img :src="item.url" />
           </template>
